@@ -1,0 +1,7 @@
+root: build
+force_https: true
+pushstate: enabled
+location_include: includes/*.conf
+status_codes:
+  404: /index.html
+  500: /index.html

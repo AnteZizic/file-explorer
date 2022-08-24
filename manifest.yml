@@ -1,0 +1,17 @@
+---
+applications:
+  - buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+    memory: 256M
+    stack: cflinuxfs2
+    root: build
+    name: admin-dev
+  - buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+    memory: 256M
+    stack: cflinuxfs2
+    root: build
+    name: admin-stage
+  - buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+    memory: 512M
+    stack: cflinuxfs2
+    root: build
+    name: admin-prod
