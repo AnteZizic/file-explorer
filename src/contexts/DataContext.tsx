@@ -30,7 +30,7 @@ export const DataProvider: FC = ({children}: any) => {
       name: file.name,
       size: file.size,
       lastUpdatedAt: new Date(),
-      url: 'localhost:3000/mock.pdf'
+      url: 'http://localhost:3000/mock.pdf'
     };
 
     setData(updatedData(data, parentNodeId, newNode));
