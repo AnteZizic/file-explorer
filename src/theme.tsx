@@ -1,8 +1,8 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 
-const GREEN_COLOR = {
-  main: '#4caf50',
+const BLUE_COLOR = {
+  main: '#4c9cd3',
   contrastText: '#fff'
 };
 
@@ -11,7 +11,7 @@ const RED_COLOR = {
 };
 
 const BLACK_COLOR = {
-  primary: 'rgba(0, 0, 0, 0.87)',
+  primary: '#484848',
   secondary: 'rgba(0, 0, 0, 0.54)',
   disabled: 'rgba(0, 0, 0, 0.38)',
   hint: 'rgba(0, 0, 0, 0.38)'
@@ -24,10 +24,10 @@ const palette = {
   },
   background: {
     paper: '#fff',
-    default: '#eee'
+    default: '#fff'
   },
   primary: { main: '#325272' },
-  secondary: GREEN_COLOR,
+  secondary: BLUE_COLOR,
   error: RED_COLOR,
   text: BLACK_COLOR
 };
@@ -45,23 +45,9 @@ const theme = createMuiTheme({
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        '.swal2-container': {
-          'z-index': '1301 !important'
-        },
-        'tbody.MuiTableBody-root >:nth-of-type(2n)': {
-          backgroundColor: 'rgba(0,0,0,.02)'
-        },
         body: {
-          backgroundColor: '#f7f9fc'
+          backgroundColor: '#fff'
         },
-        '.bpmn-palette-item': {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        },
-        '.bpmn-context-pad-item img': {
-          width: '100%'
-        }
       }
     },
     MuiDialogContent: {
@@ -72,7 +58,7 @@ const theme = createMuiTheme({
   },
   props: {
     MuiButton: {
-      disableElevation: true
+      disableElevation: true,
     }
   }
 });

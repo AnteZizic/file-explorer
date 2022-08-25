@@ -1,5 +1,5 @@
-export interface INode {
-  id: string;
-  name: string;
-  children?: INode[];
+import {Dispatch, SetStateAction} from "react";
+
+export interface FileTreeViewProps {
+  onSelect: Dispatch<SetStateAction<string | undefined>>;
 }

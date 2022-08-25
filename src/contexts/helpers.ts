@@ -1,13 +1,13 @@
 export const files = {
   id: 'root',
-  name: 'Project files',
+  name: 'Project Files',
   children: [
     {
       id: '1',
       name: '00 REFERENCES',
       children: [
         {
-          id: '1',
+          id: '1-1',
           name: 'File',
         }
       ],
@@ -17,7 +17,7 @@ export const files = {
       name: '01 WIP',
       children: [
         {
-          id: '1',
+          id: '2-1',
           name: 'File',
         }
       ],
@@ -27,7 +27,7 @@ export const files = {
       name: '02 FOR REVIEW',
       children: [
         {
-          id: '1',
+          id: '3-1',
           name: 'File',
         }
       ],
@@ -37,7 +37,7 @@ export const files = {
       name: '03 PUBLISHED',
       children: [
         {
-          id: '1',
+          id: '4-1',
           name: 'File',
         }
       ],
@@ -47,7 +47,7 @@ export const files = {
       name: '04 COORDINATION',
       children: [
         {
-          id: '1',
+          id: '5-1',
           name: 'File',
         }
       ],
@@ -57,7 +57,7 @@ export const files = {
       name: '10 SHARED',
       children: [
         {
-          id: '1',
+          id: '6-1',
           name: 'File',
         }
       ],
@@ -67,7 +67,7 @@ export const files = {
       name: '100 IMMORISE',
       children: [
         {
-          id: '1',
+          id: '7-1',
           name: 'File',
         }
       ],
@@ -77,7 +77,7 @@ export const files = {
       name: '200 VBS ACS',
       children: [
         {
-          id: '1',
+          id: '8-1',
           name: 'File',
         }
       ],
@@ -87,7 +87,7 @@ export const files = {
       name: '300 VBS MEP',
       children: [
         {
-          id: '1',
+          id: '9-1',
           name: 'File',
         }
       ],
@@ -97,7 +97,7 @@ export const files = {
       name: '400 VBS QC',
       children: [
         {
-          id: '1',
+          id: '10-1',
           name: 'File',
         }
       ],
@@ -107,7 +107,7 @@ export const files = {
       name: '500 VBS COORD',
       children: [
         {
-          id: '1',
+          id: '11-1',
           name: 'File',
         }
       ],
@@ -117,7 +117,7 @@ export const files = {
       name: 'VBS ACS',
       children: [
         {
-          id: '1',
+          id: '12-1',
           name: 'File',
         }
       ],
@@ -127,7 +127,7 @@ export const files = {
       name: 'VBS MEP',
       children: [
         {
-          id: '1',
+          id: '13-1',
           name: 'File',
         }
       ],

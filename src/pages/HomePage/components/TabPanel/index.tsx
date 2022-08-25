@@ -3,6 +3,8 @@ import {
   Box
 } from "@material-ui/core";
 
+import "./styles.css";
+
 export interface TabPanelProps {
   children: ReactNode;
   value: number;
@@ -17,13 +19,14 @@ export const TabPanel = (props: TabPanelProps) => {
   return (
     <div
       role="tabpanel"
+      className="tab-panel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
       {value === index && (
-        <Box p={3}>{children}</Box>
+        <Box height="100%">{children}</Box>
       )}
     </div>
   );
