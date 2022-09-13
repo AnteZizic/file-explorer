@@ -1,49 +1,92 @@
-import React, {ChangeEvent, useRef} from "react";
-import {
-  Box,
-  Button,
-  OutlinedInput,
-  InputAdornment,
-} from "@material-ui/core";
-import {
-  ToggleButtonGroup,
-  ToggleButton,
-} from "@material-ui/lab";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import SearchIcon from "@material-ui/icons/Search";
+import React, { ChangeEvent, useRef } from "react";
+import { Box, Button } from "@material-ui/core";
 import LaunchIcon from "@material-ui/icons/Launch";
-import ReorderIcon from "@material-ui/icons/Reorder";
-import AppsOutlinedIcon from "@material-ui/icons/AppsOutlined";
+import CreateFolderIcon from "@material-ui/icons/CreateNewFolderOutlined";
+import DeleteIcon from "@material-ui/icons/Delete";
+import RenameIcon from "@material-ui/icons/ChangeHistoryOutlined";
 
-import { DISPLAY_MODE, FileTableToolbarProps } from "./types";
+import { useDataContext } from "../../../../contexts/DataContext";
+
+import { FileTableToolbarProps } from "./types";
 import { useStyles } from "./styles";
 
 export const FileTableToolbar = (props: FileTableToolbarProps) => {
-  const { search, onChangeSearch, displayMode, onChangeDisplayMode, onUploadFile } = props;
+  const { onUploadFile, openModal, selected, onChangeSelected } = props;
+  const { deleteFile, deleteFolder } = useDataContext();
   const classes = useStyles();
 
   const fileInputRef = useRef(null);
 
-  const handleChangeSearch = (event: any) => {
-    onChangeSearch(event.target.value);
-  };
-
-  const handleChangeDisplayMode = (event: any, value: DISPLAY_MODE) => {
-    onChangeDisplayMode(value);
-  };
-
-  const handleClickExport = () => {
+  const handleClickUpload = () => {
     if (fileInputRef.current !== null) {
       // @ts-ignore
       fileInputRef.current.click();
     }
   };
 
-  const handleExportFile = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleUploadFile = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length) {
       onUploadFile(event.target.files[0]);
     }
   }
+
+  const handleDelete = () => {
+    if (selected.length === 1) {
+      if (selected[0].includes('.')) {
+        deleteFile(selected[0]);
+      } else {
+        deleteFolder(selected[0]);
+      }
+      onChangeSelected([]);
+    } else {
+      alert('You can select only one object!');
+    }
+  }
+
+  const handleRename = () => {
+    if (selected.length === 1) {
+      openModal('Rename', selected[0]);
+      onChangeSelected([]);
+    } else {
+      alert('You can select only one object!');
+    }
+  }
+
+  const createFolderButton = (
+    <Button
+      variant="outlined"
+      color="default"
+      className={classes.exportBtn}
+      startIcon={<CreateFolderIcon />}
+      onClick={() => openModal('Create')}
+    >
+      Create Folder
+    </Button>
+  );
+
+  const deleteButton = (
+    <Button
+      variant="outlined"
+      color="default"
+      className={classes.exportBtn}
+      startIcon={<DeleteIcon />}
+      onClick={handleDelete}
+    >
+      Delete
+    </Button>
+  );
+
+  const renameButton = (
+    <Button
+      variant="outlined"
+      color="default"
+      className={classes.exportBtn}
+      startIcon={<RenameIcon />}
+      onClick={handleRename}
+    >
+      Rename
+    </Button>
+  );
 
   const exportButton = (
     <Button
@@ -51,50 +94,23 @@ export const FileTableToolbar = (props: FileTableToolbarProps) => {
       color="default"
       className={classes.exportBtn}
       startIcon={<LaunchIcon />}
-      endIcon={<KeyboardArrowDownIcon />}
-      onClick={handleClickExport}
+      onClick={handleClickUpload}
     >
-      Export
+      Upload
     </Button>
   );
 
-  const searchInput = (
-    <OutlinedInput
-      id="search-input"
-      className={classes.searchInput}
-      type="text"
-      value={search}
-      onChange={handleChangeSearch}
-      startAdornment={
-        <InputAdornment position="start">
-          <SearchIcon />
-        </InputAdornment>
-      }
-      placeholder="Search and filter"
-    />
-  );
-
-  const displayToggle = (
-    <ToggleButtonGroup size="small" value={displayMode} exclusive onChange={handleChangeDisplayMode}>
-      <ToggleButton value={DISPLAY_MODE.GRID}>
-        <AppsOutlinedIcon fontSize="small" />
-      </ToggleButton>
-      <ToggleButton value={DISPLAY_MODE.LIST}>
-        <ReorderIcon fontSize="small" />
-      </ToggleButton>
-    </ToggleButtonGroup>
-  )
-
   return (
     <Box display="flex" justifyContent="flex-end" height={36} mb={2}>
+      {createFolderButton}
+      {deleteButton}
+      {renameButton}
       {exportButton}
-      {searchInput}
-      {displayToggle}
       <input
         className={classes.fileInput}
         ref={fileInputRef}
         type="file"
-        onChange={handleExportFile}
+        onChange={handleUploadFile}
         accept=".jpeg, .png, .pdf" />
     </Box>
   );

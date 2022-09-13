@@ -1,12 +1,12 @@
 import React from "react";
 
-import {useStyles} from "./styles";
+import { useStyles } from "./styles";
 
 const FilePage = () => {
   const classes = useStyles();
 
   return (
-    <iframe className={classes.frame} src="/mock.pdf" />
+    <iframe title="fileView" className={classes.frame} src="/mock.pdf" />
   );
 }
 

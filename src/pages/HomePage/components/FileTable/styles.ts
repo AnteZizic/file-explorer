@@ -20,5 +20,8 @@ export const useStyles = makeStyles((theme) => ({
   },
   actionPopper: {
     backgroundColor: '#f6f6f6',
+  },
+  fileName: {
+    cursor: "pointer"
   }
 }));

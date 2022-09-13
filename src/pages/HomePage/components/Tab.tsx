@@ -6,7 +6,7 @@ import {
   Theme,
 } from "@material-ui/core";
 
-export const Tab = withStyles((theme: Theme) => ({
+const styles = (theme: Theme) => ({
   root: {
     textTransform: 'none',
     minWidth: 60,
@@ -16,4 +16,7 @@ export const Tab = withStyles((theme: Theme) => ({
     marginRight: theme.spacing(4),
   },
   selected: {},
-}))((props: TabProps) => <MatTab disableRipple {...props} />);
+})
+
+// @ts-ignore
+export const Tab = withStyles(styles)((props: TabProps) => <MatTab disableRipple {...props} />);

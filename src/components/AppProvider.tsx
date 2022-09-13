@@ -5,7 +5,11 @@ import {CssBaseline, ThemeProvider} from '@material-ui/core';
 import {DataProvider} from '../contexts/DataContext';
 import theme from '../theme';
 
-const AppProviders: FC = ({children}: any) => {
+type TAppProvidersProps = {
+  children: React.ReactNode
+}
+
+const AppProviders: FC<TAppProvidersProps> = ({children}) => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>

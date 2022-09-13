@@ -1,18 +1,16 @@
 import * as React from "react";
-import { INode } from "../../../../contexts/types";
+import { Dispatch, SetStateAction } from "react";
 
 export interface TableHeadProps {
-  classes: object;
   onSelectAllClick(event: React.ChangeEvent<HTMLInputElement>): void;
-  order: 'asc' | 'desc';
-  orderBy: string;
   numSelected: number;
   rowCount: number;
-  onRequestSort(event: MouseEvent, property: string): void;
 }
 
 export interface FileTableProps {
   parentNodeId: string;
+  onSelect: Dispatch<SetStateAction<string | undefined>>;
+  openModal: (type: string, oldName?: string) => void;
 }
 
 export interface TableRowActionsProps {
